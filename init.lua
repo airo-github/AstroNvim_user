@@ -17,6 +17,13 @@ return {
     },
   },
 
+  options = {
+    opt = {
+      endofline = true,
+      fixendofline = true,
+    },
+  },
+
   -- Set colorscheme to use
   colorscheme = "astrodark",
 
