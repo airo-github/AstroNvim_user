@@ -76,6 +76,15 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+    -- ファイル保存時に最終行に改行を追加する
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      pattern = "*",
+      callback = function()
+        if vim.fn.getline('$') ~= '' then
+          vim.cmd([[call append('$', '')]])
+        end
+      end,
+    })
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
@@ -90,3 +99,4 @@ return {
     -- }
   end,
 }
+
